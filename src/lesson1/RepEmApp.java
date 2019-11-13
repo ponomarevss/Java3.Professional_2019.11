@@ -9,7 +9,7 @@ public class RepEmApp {
 
         replaceThem(integerRep, 1, 3);
     }
-    
+
     public static ReplaceThem[] replaceThem(ReplaceThem[] replaceThem, int i0, int i1) {
         try {
             ReplaceThem<?> buffer = replaceThem[i1];
