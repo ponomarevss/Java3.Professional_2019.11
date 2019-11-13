@@ -2,24 +2,26 @@ package lesson1;
 
 public class RepEmApp {
     public static void main(String[] args) {
-        ReplaceThem<Integer> integerRep = new ReplaceThem<>(1, 2, 3, 4, 5);
-        ReplaceThem<Double> doubleRep = new ReplaceThem<>(1.0, 2.0, 3.3, 4.4, 5.5);
-        ReplaceThem<Float> floatRep = new ReplaceThem<>(1.0f, 2.0f, 3.0f, 4.0f, 5.0f);
-        ReplaceThem<String> stringRep = new ReplaceThem<>("1", "2", "3", "4", "5");
+        TaskGeneric<Integer> integerRep = new TaskGeneric<>(1, 2, 3, 4, 5);
+        TaskGeneric<Double> doubleRep = new TaskGeneric<>(1.0, 2.0, 3.3, 4.4, 5.5);
+        TaskGeneric<Float> floatRep = new TaskGeneric<>(1.0f, 2.0f, 3.0f, 4.0f, 5.0f);
+        TaskGeneric<String> stringRep = new TaskGeneric<>("1", "2", "3", "4", "5");
 
-        replaceThem(integerRep, 1, 3);
-    }
+        integerRep.replaceThem(1, 3);
+        integerRep.show();
+        System.out.println(integerRep.toArrayList());
 
-    public static ReplaceThem[] replaceThem(ReplaceThem[] replaceThem, int i0, int i1) {
-        try {
-            ReplaceThem<?> buffer = replaceThem[i1];
-            replaceThem[i1] = replaceThem[i0];
-            replaceThem[i0] = buffer;
-        } catch (Exception e) {
-            System.err.println("incorrect index");
-//            e.printStackTrace();
-        }
-        return replaceThem;
+        doubleRep.replaceThem(0, 2);
+        doubleRep.show();
+        System.out.println(doubleRep.toArrayList());
+
+        floatRep.replaceThem(4, 0);
+        floatRep.show();
+        System.out.println(floatRep.toArrayList());
+
+        stringRep.replaceThem(4, 3);
+        stringRep.show();
+        System.out.println(stringRep.toArrayList());
     }
 
 }
