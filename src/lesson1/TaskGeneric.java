@@ -1,6 +1,7 @@
 package lesson1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TaskGeneric<T> {
     private T[] object;
@@ -32,10 +33,7 @@ public class TaskGeneric<T> {
     }
 
     public ArrayList<T> toArrayList() {
-        ArrayList<T> objectArrayList = new ArrayList<>();
-        for (T o: object) {
-            objectArrayList.add(o);
-        }
+        ArrayList<T> objectArrayList = new ArrayList<>(Arrays.asList(object));
         return objectArrayList;
     }
 
