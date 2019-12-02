@@ -40,13 +40,15 @@ public class Car implements Runnable {
             }
         } catch (InterruptedException | BrokenBarrierException e) {
             e.printStackTrace();
-        } finally {
+        }
 
-            try {
-                MainClass.raceOver.await();
-            } catch (InterruptedException | BrokenBarrierException e) {
-                e.printStackTrace();
-            }
+            MainClass.winnerName = this.getName();
+            MainClass.raceWinner.countDown();
+
+        try {
+            MainClass.raceOver.await();
+        } catch (InterruptedException | BrokenBarrierException e) {
+            e.printStackTrace();
         }
     }
 }
